@@ -1,0 +1,4 @@
+model,RMSE_direct,R_direct,RMSE_reverse,R_reverse,Rdirinv,delta_avg
+SimBa-I,1.33,0.52,2.55,0.10,-0.03,-2.01
+SimBa-IB,1.43,0.49,1.98,0.35,-0.87,-0.90
+SimBa-SYM,1.67,0.44,1.68,0.43,-0.99,-0.01
