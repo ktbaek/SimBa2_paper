@@ -1,4 +1,3 @@
-.Rproj
 /*.Rproj.user/*
 .Rhistory
 .ipynb_checkpoints
@@ -7,3 +6,4 @@
 *.png
 *.tiff
 
+.Rproj.user
