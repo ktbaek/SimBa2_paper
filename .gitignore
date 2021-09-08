@@ -1,9 +1,9 @@
-*.Rproj
-/*.Rproj.user
+.Rproj
+/*.Rproj.user/*
 .Rhistory
-/.ipynb_checkpoints
-
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
 
 *.png
 *.tiff
-/.Rproj.user
+
