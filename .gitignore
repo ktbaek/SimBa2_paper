@@ -2,4 +2,5 @@
 /*.Rproj.user
 
 *.png
-.Rproj.user
+*.tiff
+/.Rproj.user
