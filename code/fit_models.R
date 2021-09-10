@@ -1,7 +1,14 @@
 library(tidyverse)
 library(magrittr)
 library(tidymodels)
-library(krisr)
+
+# General functions
+rsquared <- 
+  function(x,y) 
+  {
+    m <- lm(y ~ x)
+    return(summary(m)$r.squared)
+  }
 
 # Training data sets
 b1112a <- read_csv('data/B1112a.csv')

@@ -1,7 +1,6 @@
 library(tidyverse)
 library(magrittr)
 library(tidymodels)
-library(krisr)
 
 # Read data sets
 

@@ -1,7 +1,6 @@
 library(tidyverse)
 library(magrittr)
 library(tidymodels)
-library(krisr)
 
 # Read data sets
 
@@ -11,6 +10,13 @@ ssym <- read_csv("data/ssym.csv")
 
 
 # General functions
+
+rsquared <- 
+  function(x,y) 
+  {
+    m <- lm(y ~ x)
+    return(summary(m)$r.squared)
+  }
 
 pred <- function(RSA, Hdiff, Vdiff, cf) {
   

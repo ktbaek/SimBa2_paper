@@ -1,7 +1,6 @@
 library(tidyverse)
 library(magrittr)
 library(tidymodels)
-library(krisr)
 
 # Read data sets
 
@@ -46,6 +45,12 @@ by_train_data <- train_data %>%
   ) 
 
 # General functions
+rsquared <- 
+  function(x,y) 
+  {
+    m <- lm(y ~ x)
+    return(summary(m)$r.squared)
+  }
 
 predict_model <- function(cf, data) {
   
