@@ -162,26 +162,27 @@ run_summarize <- function(predict_df, parameters){
 lollipop_figure <- function(df) {
   
   lollipop_df <- df %>% 
-    pivot_longer(c(R, Slope, Intercept, MAE, MSE), names_to = "Metric", values_to = "Value") %>% 
+    rename(MSD = MSE) %>% 
+    pivot_longer(c(R, Slope, Intercept, MAE, MSD), names_to = "Metric", values_to = "Value") %>% 
     filter(!str_detect(test_set, "B1112")) %>% 
     mutate(
       min = case_when(
         Metric == "R" ~ 0,
         Metric == "MAE" ~ 0,
-        Metric == "MSE" ~ -1.3,
+        Metric == "MSD" ~ -1.3,
         Metric == "Slope" ~ 0,
         Metric == "Intercept" ~ -1.3
       ),
       max = case_when(
         Metric == "R" ~ 0.6,
         Metric == "MAE" ~ 1.7,
-        Metric == "MSE" ~ 0.85,
+        Metric == "MSD" ~ 0.85,
         Metric == "Slope" ~ 0.5,
         Metric == "Intercept" ~ 0.3
       )
     )
   
-  lollipop_df$Metric <- factor(lollipop_df$Metric, levels = c("R", "MAE", "MSE", "Intercept", "Slope"))
+  lollipop_df$Metric <- factor(lollipop_df$Metric, levels = c("R", "MAE", "MSD", "Intercept", "Slope"))
   lollipop_df$train_set <- factor(lollipop_df$train_set, levels = c("B1112e", "B1112d", "B1112c", "B1112b", "B1112a"))
   lollipop_df$method <- factor(lollipop_df$method, levels = c("RMSE", "Huber", "MAE"))
   

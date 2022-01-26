@@ -117,6 +117,16 @@ predict_df <- model_df %>%
 delta_avg <- delta_average(predict_df)
 corr <- corr_coef(predict_df)
 
+# Raw data table
+
+predict_df %>% 
+  select(model, Direction, prediction) %>% 
+  unnest(prediction) %>% 
+  rename(SimBa_SYM_predict = Predicted) %>% 
+  write_csv("data/simba_sym_ssym_predict.csv")
+
+# Metrics
+
 simba_sym <- predict_df %>% 
   select(model, Direction, metrics) %>% 
   unnest(metrics) %>% 
@@ -170,6 +180,16 @@ predict_df <- model_df %>%
 
 delta_avg <- delta_average(predict_df)
 corr <- corr_coef(predict_df)
+
+# Raw data table
+
+predict_df %>% 
+  select(model, Direction, prediction) %>% 
+  unnest(prediction) %>% 
+  rename(SimBa_IB_predict = Predicted) %>% 
+  write_csv("data/simba_IB_ssym_predict.csv")
+
+# Metrics
 
 simba_ib <- predict_df %>% 
   select(model, Direction, metrics) %>% 
@@ -232,4 +252,7 @@ simba_i <- predict_df %>%
 
 bind_rows(simba_i, simba_ib, simba_sym) %>% 
   write.table(file = "tables/table_4.txt", sep = ",", quote = FALSE, row.names = FALSE)
+
+
+
 
